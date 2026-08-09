@@ -2150,6 +2150,9 @@ run-provider-harness-test: $(if $(HELP),,install-newman) ## Run the Bifrost prov
 		CACHE_PASS=1; \
 	fi; \
 	if [ "$$CACHE_PASS" = "1" ] && [ -n "$$PICKED_FEATURES" ] && [ -z "$$MAIN_FEATURES" ]; then SKIP_MAIN=1; fi; \
+	for d in $$DEFERRED_KEYS; do \
+		if [ "$(FEATURE)" = "$$d" ]; then CACHE_PASS=1; SKIP_MAIN=1; fi; \
+	done; \
 	EXCLUDE_FLAG=""; \
 	if [ "$$CACHE_PASS" = "1" ]; then \
 		EXCLUDE_FLAG="--exclude-feature-any cache-parity"; \
