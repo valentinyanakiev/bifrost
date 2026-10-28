@@ -1,4 +1,4 @@
-- fix: preserve raw OpenAI Responses cache-counter presence [@valentinyanakiev](https://github.com/valentinyanakiev)
+- fix: OpenAI-compatible Responses providers record whether the raw payload carried usage.input_tokens_details, so post hooks can tell missing cache counters from zero ones (ExtraFields.RawResponsesCacheCountersKnown, in-process only) (#6868) [@valentinyanakiev](https://github.com/valentinyanakiev)
 - fix: anthropic - native Sonnet 5.5 requests keep the caller's thinking settings on both the typed and raw paths (#7895) [@valentinyanakiev](https://github.com/valentinyanakiev)
 - fix: omit synthetic reasoning signature on bridged Chat Completions thinking blocks (#8549)
 - feat: openapi MCP connection type, backed by an in-process server built through the new MCPConfig.InProcessServerFactory hook (#8307)
